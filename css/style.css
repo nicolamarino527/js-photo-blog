@@ -1,5 +1,56 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;   
+}
+#title-container {
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    /* debug */
+    border: 1px solid;
+    background-image: url(../img/wall.png);
+}
+#title {
+    margin-top: 40px;
+    font-size: 100px;
+}
+#photo-container {
+    margin-left: 10%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    /* debug */
+    border: 1px solid;
+    height: 1000px;
+    width: 80%;
+}
+.photo {
+    width: 350px;
+    height: 450px;
+    border: 1px solid;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.img {
+    height: 310px;
+    width: 310px;
+    border: 1px solid;
+    background-color: wheat;
+    margin-top: 20px;
+}
+#main {
+    background-image: url(../img/cork.png);
+    background-color: wheat;
+    width: 100%;
+    height: 100%;
+}
+.photo-text {
+    border: 1px solid;
+    width: 310px;
+    height: 90px;
+
 }
