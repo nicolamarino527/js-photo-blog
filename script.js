@@ -1,4 +1,4 @@
-// Parte 1
+// ------------------------------------ Parte 1 ------------------------------------
 
 // Milestone 1
 // Sfruttando gli screen e gli asset in allegato riproduciamo la grafica proposta in maniera statica: 
@@ -17,7 +17,7 @@
 // rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano man mano una sotto l’altra
 //  ed il titolo abbia una dimensione adeguata
 
-// Parte 1 
+// ------------------------------------ Parte 1 ------------------------------------
 
 // Milestone 1
 // Facciamo in modo di creare un overlay che copra l’intera pagina e all’interno,
@@ -37,6 +37,7 @@
 // la loro ombra aumenta, il tutto in manierà fluida. Inoltre il mouse diventa un 
 // puntatore, per far capire all’utente che può cliccare
 
+// ---------------------------------------------------------------------------------
 
 // Definiamo l'endpoint da cui recuperare i dati dell'API
 const endPoint = 'https://lanciweb.github.io/demo/api/pictures/';
@@ -46,6 +47,12 @@ let photoList = document.getElementById("photo-container");
 
 // Creiamo una variabile vuota per poi successivamente aggiungere l'html da sostituire
 let photo = "";
+
+// Creiamo la variabile del bottone
+const button = document.getElementById("button");
+
+// Creiamo la variabile del'overlay
+const overlay = document.getElementById("overlay");
 
 // Effettuiamo una chiamata GET all'endpoint utilizzando Axios
 axios.get(endPoint)
@@ -79,6 +86,8 @@ axios.get(endPoint)
                     </div>`;
             // Aggiungiamo il blocco HTML generato al contenitore `photoList`
             photoList.innerHTML += photo;
+            console.log(photo);
+            
         }
     })
     // In caso di errore nella richiesta, gestiamo l'errore
@@ -86,8 +95,24 @@ axios.get(endPoint)
         console.error(error);
     });
 
-
     
 
 
-     
+    // Creiamo la funzione che ci permette di chiudere l overlay al CLICK
+    function closeWindow() {
+        overlay.classList.add("d-none");
+    };
+
+    button.addEventListener('click', (close) => {
+
+            // Evitiamo che la pagina ricarichi
+            close.preventDefault();
+            
+            // Aggiungiamo la classe display-none al contenitore dell overlay
+            closeWindow();
+    });
+
+
+
+
+   
