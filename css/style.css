@@ -3,7 +3,17 @@
     margin: 0;
     box-sizing: border-box;   
 }
-#title-container {
+/* ---------- text ---------- */
+.date {
+    font-size: 25px;
+    color: gray;
+}
+.title {
+    padding-top: 10px;
+    font-size: 30px;
+}
+/* ---------- header ---------- */
+#header-container {
     height: 200px;
     width: 100%;
     text-align: center;
@@ -11,23 +21,27 @@
     border: 1px solid;
     background-image: url(../img/wall.png);
 }
-#title {
+#header-title {
     margin-top: 40px;
     font-size: 100px;
 }
+/* ---------- photos ---------- */
 #photo-container {
     margin-left: 10%;
     padding-top: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 3%;
+    flex-wrap: wrap;
     /* debug */
     border: 1px solid;
-    height: 1000px;
+    height: 100%;
     width: 80%;
 }
 .photo {
+    margin-top: 20px;
     width: 350px;
-    height: 450px;
+    height: 440px;
     border: 1px solid;
     background-color: #fff;
     cursor: pointer;
@@ -35,22 +49,24 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+.pin {
+    position: absolute;
+    top: -6;
+    
+}
 .img {
     height: 310px;
     width: 310px;
     border: 1px solid;
-    background-color: wheat;
     margin-top: 20px;
 }
 #main {
     background-image: url(../img/cork.png);
-    background-color: wheat;
     width: 100%;
-    height: 100%;
+    height: 300%;
 }
 .photo-text {
     border: 1px solid;
     width: 310px;
     height: 90px;
-
 }
