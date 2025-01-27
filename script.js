@@ -17,38 +17,54 @@
 
 
 
-// scriviamo le variabili
+// Definiamo l'endpoint da cui recuperare i dati dell'API
 const endPoint = 'https://lanciweb.github.io/demo/api/pictures/';
-let photoList = document.getElementById("photo-container");
-let photo ="";
 
-// Facciamo una chiamata axios
+// Selezioniamo il contenitore HTML in cui verranno aggiunti gli elementi
+let photoList = document.getElementById("photo-container");
+
+// Creiamo una variabile vuota per poi successivamente aggiungere l'html da sostituire
+let photo = "";
+
+// Effettuiamo una chiamata GET all'endpoint utilizzando Axios
 axios.get(endPoint)
-    // In caso di risposta 
+
+    // In caso di successo della chiamata, gestiamo la risposta
     .then(response => {
+
+        // Recuperiamo i dati dalla risposta
         const data = response.data;
-            // Creiamo un ciclo per prendere gli oggetti da data
-            for (let i = 0; i < data.length; i++){
-                let dataNames = data[i];
-                // Definiamo i valori degli oggetti
-                const {id, title, date, url} = dataNames;  
-                photo = `<div class="photo">
-                            <img class="pin" src="./img/pin.svg" alt="">
-                            <img class="img" src="${url}" alt="photo">
-                            <div class="photo-text">
-                                <span class="date">${date}</span>
-                                <h2 class="title">${title}</h2>
-                            </div>
-                        </div>`
-                console.log(photo);
-            
+        
+        // Creiamo un ciclo per iterare su ogni oggetto dell'array `data`
+        for (let i = 0; i < data.length; i++) {
+            let dataNames = data[i];
+
+            // Estrapoliamo i valori dall'oggetto corrente
+            const { id, title, date, url } = dataNames;
+
+            // Creiamo un blocco HTML da aggiungere in pagina
+            photo = `<div class="photo">
+                        <!-- Icona decorativa -->
+                        <img class="pin" src="./img/pin.svg" alt="">
+
+                        <!-- Immagine della foto -->
+                        <img class="img" src="${url}" alt="photo">
+
+                        <!-- Dettagli della foto -->
+                        <div class="photo-text">
+                            <span class="date">${date}</span>
+                            <h2 class="title">${title}</h2>
+                        </div>
+                    </div>`;
+            // Aggiungiamo il blocco HTML generato al contenitore `photoList`
             photoList.innerHTML += photo;
         }
     })
-    // In caso di errore 
+    // In caso di errore nella richiesta, gestiamo l'errore
     .catch(error => {
-        console.error(error)
-    })
+        console.error(error);
+    });
+
 
     
 
