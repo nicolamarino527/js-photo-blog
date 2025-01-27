@@ -19,46 +19,38 @@
 
 // scriviamo le variabili
 const endPoint = 'https://lanciweb.github.io/demo/api/pictures/';
-
-let  photoList = document.getElementById("photo-container");
+let photoList = document.getElementById("photo-container");
 let photo ="";
-// console.log(title);
 
-// for (let i = 0; i < title.length; i++) {
-//   title[i].innerHTML = `<span class="date">00-00-00</span>`;
-// }
-// // console.log(endPoint);
-
+// Facciamo una chiamata axios
 axios.get(endPoint)
-
+    // In caso di risposta 
     .then(response => {
         const data = response.data;
-
-        for (let i = 0; i < data.length; i++){
-            let dataNames = data[i];
-            const {id, title, date, url} = dataNames;  
-            photo = `<div class="photo">
-                        <img class="pin" src="./img/pin.svg" alt="">
-                        <img class="img" scr="${url}" alt="photo">
-                        <div class="photo-text">
-                            <span class="date">${date}</span>
-                            <h2 class="title">${title}</h2>
-                        </div>
-                    </div>`
-
+            // Creiamo un ciclo per prendere gli oggetti da data
+            for (let i = 0; i < data.length; i++){
+                let dataNames = data[i];
+                // Definiamo i valori degli oggetti
+                const {id, title, date, url} = dataNames;  
+                photo = `<div class="photo">
+                            <img class="pin" src="./img/pin.svg" alt="">
+                            <img class="img" src="${url}" alt="photo">
+                            <div class="photo-text">
+                                <span class="date">${date}</span>
+                                <h2 class="title">${title}</h2>
+                            </div>
+                        </div>`
+                console.log(photo);
+            
             photoList.innerHTML += photo;
-            console.log(photo);
-            
-            
         }
-        
     })
+    // In caso di errore 
     .catch(error => {
         console.error(error)
-        
     })
 
     
-    
-    
-   
+
+
+     
