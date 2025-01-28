@@ -72,30 +72,26 @@ axios.get(endPoint)
 
             // Creiamo un blocco HTML da aggiungere in pagina
             photo = `<div class="photo">
-                        <!-- Icona decorativa -->
                         <img class="pin" src="./img/pin.svg" alt="">
-
-                        <!-- Immagine della foto -->
                         <img class="img" src="${url}" alt="photo">
-
-                        <!-- Dettagli della foto -->
                         <div class="photo-text">
                             <span class="date">${date}</span>
                             <h2 class="title">${title}</h2>
                         </div>
-                    </div>`;
+                        </div>`;
             // Aggiungiamo il blocco HTML generato al contenitore `photoList`
             photoList.innerHTML += photo;
-            console.log(photo);
-            
-        }
-    })
+            }
+        })
+                
+                
+
     // In caso di errore nella richiesta, gestiamo l'errore
     .catch(error => {
-        console.error(error);
+        console.error(error); 
     });
 
-    
+
 
 
     // Creiamo la funzione che ci permette di chiudere l overlay al CLICK
@@ -113,6 +109,7 @@ axios.get(endPoint)
     });
 
 
+// ___---_---_-__-_-_-_-_-_-_-_-__-_-_-_-_-___-_-_-_-_
 
+//creiamo la funzione che ci permette di visualizzare le immagini nell'overlay al click 
 
-   
